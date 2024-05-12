@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRb;
     [SerializeField]private float speed= 10f;
     [SerializeField]private float jump= 14f;
+    [SerializeField]private bool isOnGround;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -23,15 +24,35 @@ public class Player : MonoBehaviour
     {
         if (playerHandler.forwardIsPressed)
         {
-            playerRb.velocity = new Vector2(speed , 0f);
+            playerRb.velocity = new Vector2(speed , playerRb.velocity.y);
         }
-        else if (playerHandler.backwardIsPressed)
+        if (playerHandler.backwardIsPressed)
         {
-            playerRb.velocity = new Vector2(-speed , 0f);
+            playerRb.velocity = new Vector2(-speed , playerRb.velocity.y);
         }
-        else if (playerHandler.jumpIsPressed) 
+        if (playerHandler.jumpIsPressed) 
         {
-            playerRb.velocity = new Vector2(0f,jump);
+            if (isOnGround) 
+            {
+                playerRb.velocity = new Vector2(playerRb.velocity.x, jump);
+            }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Ground") 
+        {
+            isOnGround = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground") 
+        {
+            isOnGround= false;
+        }
+    }
+
+    
 }

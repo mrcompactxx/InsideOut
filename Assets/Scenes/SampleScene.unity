@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -526,6 +527,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2c40752dd840c438657be68153bc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &522609849
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522609850}
+  - component: {fileID: 522609851}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -558,6 +574,21 @@ Transform:
   - {fileID: 1474226590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522609851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522609849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bbacb6eeef43141b35b9ce29ac8533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardIsPressed: 0
+  backwardIsPressed: 0
+  jumpIsPressed: 0
 --- !u!1 &587196164
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +601,7 @@ GameObject:
   - component: {fileID: 587196168}
   - component: {fileID: 587196167}
   - component: {fileID: 587196166}
+  - component: {fileID: 587196169}
   m_Layer: 5
   m_Name: ForwardButton
   m_TagString: Untagged
@@ -678,6 +710,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587196164}
   m_CullTransparentMesh: 1
+--- !u!114 &587196169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587196164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbadb59465fda248ad4d0275a99d98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +885,7 @@ GameObject:
   - component: {fileID: 1176089867}
   - component: {fileID: 1176089866}
   - component: {fileID: 1176089865}
+  - component: {fileID: 1176089868}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Untagged
@@ -948,6 +994,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176089863}
   m_CullTransparentMesh: 1
+--- !u!114 &1176089868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176089863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6135389e3966a4da7484247e6b831d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!1 &1312575124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1316,7 @@ GameObject:
   - component: {fileID: 1455677042}
   - component: {fileID: 1455677041}
   - component: {fileID: 1455677040}
+  - component: {fileID: 1455677043}
   m_Layer: 5
   m_Name: BackwardButton
   m_TagString: Untagged
@@ -1365,6 +1425,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455677038}
   m_CullTransparentMesh: 1
+--- !u!114 &1455677043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455677038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08f392a7b6b4247ad3d58400c924bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!1 &1474226589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474226590}
   - component: {fileID: 1474226593}
+  - component: {fileID: 1474226594}
   - component: {fileID: 1474226592}
   - component: {fileID: 1474226591}
   m_Layer: 0
@@ -1511,7 +1585,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9784233a7192f854188beeba7d0c55c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1523,6 +1597,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1474226594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474226589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f777905bd795c5147beb05661d33a087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jump: 14
+  isOnGround: 0
 --- !u!1 &1569871081
 GameObject:
   m_ObjectHideFlags: 0
