@@ -7,6 +7,17 @@ public class BackwardButton : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 {
     public bool isPressed;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            isPressed = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            isPressed = false;
+        }
+    }
     public void OnPointerDown(PointerEventData pointerEventData) 
     {
         isPressed = true;

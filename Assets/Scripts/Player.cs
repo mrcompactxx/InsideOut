@@ -23,11 +23,11 @@ public class Player : MonoBehaviour
     {
         if (playerHandler.forwardIsPressed)
         {
-            playerRb.velocity = new Vector2(speed * Time.deltaTime, 0f);
+            playerRb.velocity = new Vector2(speed , 0f);
         }
         else if (playerHandler.backwardIsPressed)
         {
-            playerRb.velocity = new Vector2(-speed * Time.deltaTime, 0f);
+            playerRb.velocity = new Vector2(-speed , 0f);
         }
         else if (playerHandler.jumpIsPressed) 
         {
