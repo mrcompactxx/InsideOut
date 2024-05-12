@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Platform
+  - Calm
+  - Rage
   layers:
   - Default
   - TransparentFX
