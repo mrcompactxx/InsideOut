@@ -13,6 +13,6 @@ public class CameraHandler : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = new Vector3(playerTransform.position.x+offset.x,playerTransform.position.y+offset.y,playerTransform.position.z + offset.z);        
+        this.transform.position = new Vector3(playerTransform.position.x+offset.x,playerTransform.position.y+offset.y,playerTransform.position.z + offset.z );        
     }
 }

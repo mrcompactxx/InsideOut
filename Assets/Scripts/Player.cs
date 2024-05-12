@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private PlayerHandler playerHandler;
     private Rigidbody2D playerRb;
     [SerializeField]private float speed= 10f;
-    [SerializeField]private float jump= 14f;
+    [SerializeField]private float jump= 25f;
     [SerializeField]private bool isOnGround;
     void Start()
     {
