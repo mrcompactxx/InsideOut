@@ -24,7 +24,12 @@ public class Player : MonoBehaviour
     }
     [SerializeField]private float speed= 10f;
     [SerializeField]private float jump= 25f;
-    [SerializeField]private bool isOnGround;
+    private bool isOnGround;
+    private bool isHurt;
+    public bool getIsHurt 
+    {
+        get { return isHurt; }
+    }
 
     void Start()
     {
@@ -79,6 +84,10 @@ public class Player : MonoBehaviour
             powerSelected = true;
             powerName = collision.gameObject.tag;
         }
+        if (collision.gameObject.tag=="Slime") 
+        {
+            isHurt = true;
+        }
        
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -87,7 +96,12 @@ public class Player : MonoBehaviour
         {
             isOnGround= false;
         }
+        if (collision.gameObject.tag=="Slime") 
+        {
+            isHurt= false;
+        }
     }
 
+    
     
 }

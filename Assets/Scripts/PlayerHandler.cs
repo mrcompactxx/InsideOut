@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class PlayerHandler : MonoBehaviour
     private JumpButton jumpButton;
     private PowersHandler powersHandler;
     private Player player;
+ 
     [SerializeField] private Animator playerAnimator;
     [SerializeField]private GameObject platform;
     [SerializeField] private GameObject powersAnimations;
@@ -17,8 +17,8 @@ public class PlayerHandler : MonoBehaviour
     public bool forwardIsPressed;
     public bool backwardIsPressed;
     public bool jumpIsPressed;
-
-    
+    private float damage=20f;
+    [SerializeField]private Image healthBar;
 
     void Start()
     {
@@ -38,12 +38,16 @@ public class PlayerHandler : MonoBehaviour
         checkButtonsPressed();
         EnablePlantAnimations(player);
         EnablePlayerAnimations();
+        if (player.getIsHurt) 
+        {
+            HealthReduced(healthBar,damage);
+        }
     }
 
+    #region checkButtonsPressed
     //Checks if movement buttons are pressed
     private void checkButtonsPressed() 
     {
-
         if (forwardButton.isPressed)
         {
             forwardIsPressed = true;
@@ -69,7 +73,10 @@ public class PlayerHandler : MonoBehaviour
             jumpIsPressed = false;
         }
     }
+    #endregion
 
+
+    #region EnablePlantAnimations
     //Enables the platform animations
     private void EnablePlantAnimations(Player player) 
     {
@@ -84,7 +91,9 @@ public class PlayerHandler : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region EnablePlayAnimations()
     private void EnablePlayerAnimations() 
     {
         playerAnimator.SetBool("IsIdle", true);
@@ -109,10 +118,10 @@ public class PlayerHandler : MonoBehaviour
             playerAnimator.SetBool("IsWalk", false);
             playerAnimator.SetBool("IsJump", true);
         }
-       
-
     }
+    #endregion
 
+    #region GetPowers()
     private void GetPower() 
     {
 
@@ -124,6 +133,15 @@ public class PlayerHandler : MonoBehaviour
         {
             power = Resources.Load<GameObject>("Calm");
         }
-    
+    }
+
+    #endregion
+    private void HealthReduced(Image healthBar,float damage) 
+    {
+    healthBar.fillAmount -= (damage/100)*Time.deltaTime;
+        if (healthBar.fillAmount<=0.4) 
+        {
+            healthBar.color = Color.red;
+        }
     }
 }
