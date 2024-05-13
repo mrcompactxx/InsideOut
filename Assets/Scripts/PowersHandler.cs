@@ -14,13 +14,13 @@ public class PowersHandler : MonoBehaviour
 
     void Update()
     {
-        if (player.getPowerName == "Rage")
+/*        if (player.getPowerName == "Rage")
         {
             power = powers[1];
         }
         else if (player.getPowerName=="Calm") 
         {
             power= powers[0];
-        }
+        }*/
     }
 }

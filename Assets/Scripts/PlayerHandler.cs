@@ -31,6 +31,10 @@ public class PlayerHandler : MonoBehaviour
 
     void Update()
     {
+        if (powersHandler == null) 
+        {
+            powersHandler = FindAnyObjectByType<PowersHandler>();
+        }
         checkButtonsPressed();
         EnableAnimations(player);
     }
@@ -82,9 +86,13 @@ public class PlayerHandler : MonoBehaviour
     private void GetPower() 
     {
 
-        if (player.getPowerName=="Rage" || player.getPowerName=="Calm") 
+        if (player.getPowerName == "Rage")
         {
-            power = powersHandler.power;
+            power = Resources.Load<GameObject>("Rage");
+        }
+        else if (player.getPowerName == "Calm") 
+        {
+            power = Resources.Load<GameObject>("Calm");
         }
     
     }
