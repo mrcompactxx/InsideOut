@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
     {
         get { return isHurt; }
     }
-
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+   
     }
 
     private void Movement() 
@@ -102,6 +103,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+
     
 }

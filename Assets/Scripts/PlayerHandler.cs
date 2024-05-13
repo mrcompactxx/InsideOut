@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHandler : MonoBehaviour
@@ -8,25 +9,36 @@ public class PlayerHandler : MonoBehaviour
     private BackwardButton backwardButton;
     private JumpButton jumpButton;
     private PowersHandler powersHandler;
-    private Player player;
- 
+    private Player playerObject;
+    private PlayerHandler playerHandler;
+
     [SerializeField] private Animator playerAnimator;
     [SerializeField]private GameObject platform;
     [SerializeField] private GameObject powersAnimations;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject power;
+    [SerializeField] private GameObject spawnLocation;
     public bool forwardIsPressed;
     public bool backwardIsPressed;
     public bool jumpIsPressed;
     private float damage=20f;
+    private bool isRespawned;
+    public bool getIsRespawned 
+    {
+        get { return isRespawned; }
+    }
+   
     [SerializeField]private Image healthBar;
 
     void Start()
     {
+        player.transform.position = spawnLocation.transform.position;
+
         powersHandler = FindAnyObjectByType<PowersHandler>();
         forwardButton = FindAnyObjectByType<ForwardButton>();
         backwardButton = FindAnyObjectByType<BackwardButton>();
         jumpButton = FindAnyObjectByType<JumpButton>();
-        player = FindAnyObjectByType<Player>();
+        playerObject = FindAnyObjectByType<Player>();
     }
 
     void Update()
@@ -35,13 +47,15 @@ public class PlayerHandler : MonoBehaviour
         {
             powersHandler = FindAnyObjectByType<PowersHandler>();
         }
-        checkButtonsPressed();
-        EnablePlantAnimations(player);
         EnablePlayerAnimations();
-        if (player.getIsHurt) 
+        checkButtonsPressed();
+        EnablePlantAnimations(playerObject);
+
+        if (playerObject.getIsHurt) 
         {
             HealthReduced(healthBar,damage);
         }
+       
     }
 
     #region checkButtonsPressed
@@ -80,20 +94,21 @@ public class PlayerHandler : MonoBehaviour
     //Enables the platform animations
     private void EnablePlantAnimations(Player player) 
     {
-        if (player.getIsOnPlatform) 
+        if (player.getIsOnPlatform)
         {
             platform.SetActive(true);
-            if (player.getPowerSelected) 
+            if (player.getPowerSelected)
             {
                 GetPower();
                 powersAnimations.SetActive(false);
-                
             }
         }
+        
+      
     }
     #endregion
 
-    #region EnablePlayAnimations()
+    #region EnablePlayerAnimations()
     private void EnablePlayerAnimations() 
     {
         playerAnimator.SetBool("IsIdle", true);
@@ -125,11 +140,11 @@ public class PlayerHandler : MonoBehaviour
     private void GetPower() 
     {
 
-        if (player.getPowerName == "Rage")
+        if (playerObject.getPowerName == "Rage")
         {
             power = Resources.Load<GameObject>("Rage");
         }
-        else if (player.getPowerName == "Calm") 
+        else if (playerObject.getPowerName == "Calm") 
         {
             power = Resources.Load<GameObject>("Calm");
         }
@@ -138,10 +153,25 @@ public class PlayerHandler : MonoBehaviour
     #endregion
     private void HealthReduced(Image healthBar,float damage) 
     {
-    healthBar.fillAmount -= (damage/100)*Time.deltaTime;
+        Respawn(healthBar);
+        healthBar.fillAmount -= (damage/100)*Time.deltaTime;
         if (healthBar.fillAmount<=0.4) 
         {
             healthBar.color = Color.red;
         }
     }
+
+    private void Respawn(Image health)
+    {
+        if (health.fillAmount == 0)
+        {
+            player.gameObject.transform.position = spawnLocation.transform.position;
+            health.fillAmount = 1;
+            health.color = Color.green;
+            isRespawned = true;
+            SceneManager.LoadScene(0);
+        }
+    }
+
+
 }

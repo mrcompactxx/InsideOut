@@ -9,7 +9,7 @@ public class PowersHandler : MonoBehaviour
     private Player player;
     void Start()
     {
-        player = FindAnyObjectByType<Player>();
+/*        player = FindAnyObjectByType<Player>();*/
     }
 
     void Update()
