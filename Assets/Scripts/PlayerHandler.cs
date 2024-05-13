@@ -10,7 +10,7 @@ public class PlayerHandler : MonoBehaviour
     private JumpButton jumpButton;
     private PowersHandler powersHandler;
     private Player player;
-
+    [SerializeField] private Animator playerAnimator;
     [SerializeField]private GameObject platform;
     [SerializeField] private GameObject powersAnimations;
     [SerializeField] private GameObject power;
@@ -36,12 +36,14 @@ public class PlayerHandler : MonoBehaviour
             powersHandler = FindAnyObjectByType<PowersHandler>();
         }
         checkButtonsPressed();
-        EnableAnimations(player);
+        EnablePlantAnimations(player);
+        EnablePlayerAnimations();
     }
 
     //Checks if movement buttons are pressed
     private void checkButtonsPressed() 
     {
+
         if (forwardButton.isPressed)
         {
             forwardIsPressed = true;
@@ -69,7 +71,7 @@ public class PlayerHandler : MonoBehaviour
     }
 
     //Enables the platform animations
-    private void EnableAnimations(Player player) 
+    private void EnablePlantAnimations(Player player) 
     {
         if (player.getIsOnPlatform) 
         {
@@ -78,9 +80,37 @@ public class PlayerHandler : MonoBehaviour
             {
                 GetPower();
                 powersAnimations.SetActive(false);
+                
             }
-            
         }
+    }
+
+    private void EnablePlayerAnimations() 
+    {
+        playerAnimator.SetBool("IsIdle", true);
+        playerAnimator.SetBool("IsWalk", false);
+        playerAnimator.SetBool("IsJump", false);
+
+        if (forwardIsPressed)
+        {
+            playerAnimator.SetBool("IsIdle", false);
+            playerAnimator.SetBool("IsWalk", true);
+            playerAnimator.SetBool("IsJump", false);
+        }
+        else if (backwardIsPressed) 
+        {
+            playerAnimator.SetBool("IsIdle", false);
+            playerAnimator.SetBool("IsWalk", true);
+            playerAnimator.SetBool("IsJump", false);
+        }
+        else if (jumpIsPressed)
+        {
+            playerAnimator.SetBool("IsIdle", false);
+            playerAnimator.SetBool("IsWalk", false);
+            playerAnimator.SetBool("IsJump", true);
+        }
+       
+
     }
 
     private void GetPower() 
