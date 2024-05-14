@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerShoot : MonoBehaviour
 {
+    public bool isDestroyed;
     private bool shoot;
     private bool collidedWithEnemy;
     public bool getCollidedWithEnemy 
@@ -13,7 +14,6 @@ public class PowerShoot : MonoBehaviour
     private Player player;
     private PlayerHandler playerHandler;
     private PowerButton powerButton;
-    private Enemy enemy;
     [SerializeField]private GameObject powerLocation;
     [SerializeField]private GameObject prefab;
     private GameObject power;
@@ -23,16 +23,17 @@ public class PowerShoot : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         playerHandler = FindAnyObjectByType<PlayerHandler>();
         powerButton = FindAnyObjectByType<PowerButton>();
-        enemy = FindAnyObjectByType<Enemy>();   
     }
 
     void Update()
     {
+        
+        
         if (powerButton == null) 
         {
             powerButton = FindAnyObjectByType<PowerButton>();
         }
-
+    
         if (GetPower(playerHandler)) 
         {
             if (powerButton!=null) 
@@ -59,20 +60,12 @@ public class PowerShoot : MonoBehaviour
 
     private void Attack() 
     {
-
-
-        Rigidbody2D rb;
         if (shoot == false && powerButton.isPressed)
         {
             power = Instantiate(prefab, powerLocation.transform.position, Quaternion.identity);
-            rb = power.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(powerSpeed, rb.velocity.y);
-
-
-              
-            
             shoot = true;
-        
+            
+            
         }
         else if (shoot == true && powerButton.isPressed == false)
         {
@@ -81,9 +74,6 @@ public class PowerShoot : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
+
 
 }

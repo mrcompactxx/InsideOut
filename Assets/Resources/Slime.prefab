@@ -112,11 +112,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8493305299924111529}
+  - component: {fileID: 1751613104864156549}
   - component: {fileID: 5513134632012252216}
   - component: {fileID: 7810955325769022785}
   - component: {fileID: 6054875392140360938}
   - component: {fileID: 7257515877361335847}
-  - component: {fileID: 1751613104864156549}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Slime
@@ -140,6 +140,22 @@ Transform:
   - {fileID: 6281813624055065329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751613104864156549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020787830534795332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143af90834aeff74084f5dcf87c7ada6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHurt: 0
+  healthBarParent: {fileID: 0}
+  healthBar: {fileID: 0}
+  damage: 0
 --- !u!212 &5513134632012252216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -285,19 +301,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8181343, y: 1.8616517}
   m_EdgeRadius: 0
---- !u!114 &1751613104864156549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3020787830534795332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 143af90834aeff74084f5dcf87c7ada6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHurt: 0
 --- !u!1 &6023311207836977411
 GameObject:
   m_ObjectHideFlags: 0

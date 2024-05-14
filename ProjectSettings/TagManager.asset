@@ -9,6 +9,7 @@ TagManager:
   - Calm
   - Rage
   - Slime
+  - EnemyHealthBar
   layers:
   - Default
   - TransparentFX

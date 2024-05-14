@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1418018938920010585}
   - component: {fileID: -5252164168308171654}
   - component: {fileID: 7169744437308871191}
-  - component: {fileID: 2999644724721443301}
+  - component: {fileID: 3587445865155787790}
   m_Layer: 0
   m_Name: Rage
   m_TagString: Rage
@@ -170,8 +170,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
---- !u!114 &2999644724721443301
+  m_Constraints: 4
+--- !u!114 &3587445865155787790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,6 +180,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7930145209999770541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7afa0edafdb6b0345b6603530675c04d, type: 3}
+  m_Script: {fileID: 11500000, guid: d0ea5956abaf0594396f06878a9f0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
