@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class PowersHandler : MonoBehaviour
 {
-    [SerializeField]private GameObject[] powers;
-    public GameObject power;
+    [SerializeField]private GameObject powerLocation;
+    private GameObject power;
+    bool called = false;
     private Player player;
     void Start()
     {
-/*        player = FindAnyObjectByType<Player>();*/
+        player = FindAnyObjectByType<Player>();
     }
 
     void Update()
     {
-/*        if (player.getPowerName == "Rage")
-        {
-            power = powers[1];
-        }
-        else if (player.getPowerName=="Calm") 
-        {
-            power= powers[0];
-        }*/
+
+            FlipPosition(player);
+    }
+
+    private void FlipPosition(Player player) 
+    {
+            if (player.isFlipped==true && called!=true)
+            {
+                powerLocation.transform.Rotate(0, 180f, 0);
+                called = true;
+            }
+
+            if (player.isFlipped==false && called) 
+            {
+            powerLocation.transform.Rotate(0, -180f, 0);
+            called= false;
+            }
+    }
+
+
+    private void Attack() 
+    {
+    
     }
 }

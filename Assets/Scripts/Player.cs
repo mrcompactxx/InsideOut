@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     private PlayerHandler playerHandler;
     private Rigidbody2D playerRb;
-    private SpriteRenderer spriteRenderer;
+
     private bool isOnPlatform;
     public bool getIsOnPlatform 
     {
@@ -31,9 +31,9 @@ public class Player : MonoBehaviour
     {
         get { return isHurt; }
     }
+    public bool isFlipped;
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         playerRb = GetComponent<Rigidbody2D>();
         playerHandler = FindAnyObjectByType<PlayerHandler>();
     }
@@ -48,12 +48,19 @@ public class Player : MonoBehaviour
     {
         if (playerHandler.forwardIsPressed)
         {
-            spriteRenderer.flipX = false;
+            Vector3 scale = transform.localScale;
+            scale.x = 1;
+            transform.localScale = scale;   
+            isFlipped = false;
             playerRb.velocity = new Vector2(speed , playerRb.velocity.y);
         }
         if (playerHandler.backwardIsPressed)
         {
-            spriteRenderer.flipX = true;
+
+            Vector3 scale = transform.localScale;
+            scale.x = -1;
+            transform.localScale = scale;
+            isFlipped=true;
             playerRb.velocity = new Vector2(-speed , playerRb.velocity.y);
         }
         if (playerHandler.jumpIsPressed) 

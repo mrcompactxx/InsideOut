@@ -18,6 +18,7 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject power;
     [SerializeField] private GameObject spawnLocation;
+    [SerializeField] private GameObject powerUpButton;
     public bool forwardIsPressed;
     public bool backwardIsPressed;
     public bool jumpIsPressed;
@@ -27,7 +28,6 @@ public class PlayerHandler : MonoBehaviour
     {
         get { return isRespawned; }
     }
-   
     [SerializeField]private Image healthBar;
 
     void Start()
@@ -143,11 +143,14 @@ public class PlayerHandler : MonoBehaviour
         if (playerObject.getPowerName == "Rage")
         {
             power = Resources.Load<GameObject>("Rage");
+            powerUpButton.SetActive(true);    
         }
         else if (playerObject.getPowerName == "Calm") 
         {
             power = Resources.Load<GameObject>("Calm");
+            powerUpButton.SetActive(true);
         }
+
     }
 
     #endregion
