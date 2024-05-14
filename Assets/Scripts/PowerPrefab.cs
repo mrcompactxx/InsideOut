@@ -28,6 +28,10 @@ public class PowerPrefab : MonoBehaviour
             {
                 enemy.healthBarParent.SetActive(true);
                 enemy.HealthBar();
+                if (enemy.healthBar.fillAmount==0) 
+                {
+                    enemy.Die();
+                }
             }
             Destroy(this.gameObject);
         }

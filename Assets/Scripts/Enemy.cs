@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     private bool isCollided;
-    public bool isHurt;
-    private Enemy enemyHandler;
+    private Animator enemyAnimator;
     [SerializeField] public GameObject healthBarParent;
     private Player playerObject;
-    [SerializeField] private Image healthBar;
+    [SerializeField] public Image healthBar;
+    [SerializeField]private GameObject deathEffect;
     [SerializeField] private float damage;
     public bool getIsCollided 
     {
@@ -18,12 +18,13 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>();
         playerObject = FindAnyObjectByType<Player>();
-        enemyHandler = FindAnyObjectByType<Enemy>();
     }
 
     void Update()
     {
+        PlayAnimations();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,7 +39,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag=="Player") 
         {
             isCollided=false;
-            Destroy(collision.gameObject);
         }
 
     }
@@ -65,4 +65,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void PlayAnimations() 
+    {
+        if (isCollided == true)
+        {
+            enemyAnimator.SetBool("IsIdle", false);
+            enemyAnimator.SetBool("IsAttacking", true);
+        }
+        else if (isCollided == false)
+        {
+            enemyAnimator.SetBool("IsIdle", true);
+            enemyAnimator.SetBool("IsAttacking", false);
+        }
+    }
+
+    public void Die() 
+    {
+        enemyAnimator.SetBool("EnemyDie",true);
+        enemyAnimator.SetBool("IsIdle",false);
+        enemyAnimator.SetBool("IsAttacking",false);
+        Destroy(this.gameObject,0.5f);
+    }
 }

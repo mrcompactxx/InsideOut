@@ -763,6 +763,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &220975866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3020787830534795332, guid: 15c022d25f03e904997c5be9aa181e74, type: 3}
+  m_PrefabInstance: {fileID: 1945629597741110341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &289690748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1229,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.9885926, y: 1.310381, z: -7.7257285}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3032,7 +3037,7 @@ Transform:
   m_GameObject: {fileID: 1153147940}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.8, y: 1.84, z: 0}
+  m_LocalPosition: {x: -1.43, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3810,7 +3815,7 @@ Transform:
   m_GameObject: {fileID: 1372542329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.788895, y: 2.19, z: -9.525852}
+  m_LocalPosition: {x: 41.788895, y: 2.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3829,6 +3834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36c287c5f76996408e70ef741962fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1474226589}
+  speed: 0
+  enemy: {fileID: 220975866}
+  distance: 0
 --- !u!1 &1374026985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5457,6 +5466,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1346241485}
+    - target: {fileID: 1751613104864156549, guid: 15c022d25f03e904997c5be9aa181e74, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 5447079273416684302, guid: f6a88470b645db24baa55ab5bf36f202, type: 3}
     - target: {fileID: 1751613104864156549, guid: 15c022d25f03e904997c5be9aa181e74, type: 3}
       propertyPath: healthBarParent
       value: 
