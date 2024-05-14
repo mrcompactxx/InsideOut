@@ -5,7 +5,6 @@ using UnityEngine;
 public class PowersHandler : MonoBehaviour
 {
     [SerializeField]private GameObject powerLocation;
-    private GameObject power;
     bool called = false;
     private Player player;
     void Start()
@@ -35,8 +34,5 @@ public class PowersHandler : MonoBehaviour
     }
 
 
-    private void Attack() 
-    {
-    
-    }
+
 }

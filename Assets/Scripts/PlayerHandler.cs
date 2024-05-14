@@ -17,6 +17,7 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private GameObject powersAnimations;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject power;
+    public GameObject getPower() { return power; }
     [SerializeField] private GameObject spawnLocation;
     [SerializeField] private GameObject powerUpButton;
     public bool forwardIsPressed;
