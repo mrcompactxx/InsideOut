@@ -30,11 +30,14 @@ public class PlayerHandler : MonoBehaviour
         get { return isRespawned; }
     }
     [SerializeField]private Image healthBar;
+    [SerializeField]public Image powerBar;
 
     void Start()
     {
         player.transform.position = spawnLocation.transform.position;
 
+        powerBar.color = Color.white;
+        powerBar.fillAmount = 0;
         powersHandler = FindAnyObjectByType<PowersHandler>();
         forwardButton = FindAnyObjectByType<ForwardButton>();
         backwardButton = FindAnyObjectByType<BackwardButton>();
@@ -56,7 +59,16 @@ public class PlayerHandler : MonoBehaviour
         {
             HealthReduced(healthBar,damage);
         }
-       
+        if (playerObject.getPowerName == "Rage" && playerObject.getPowerSelected)
+        {
+            powerBar.fillAmount = 1;
+            powerBar.color = Color.red;
+        }
+        else if (playerObject.getPowerName=="Calm" && playerObject.getPowerSelected) 
+        {   
+            powerBar.fillAmount = 1;
+            powerBar.color = Color.blue;
+        }
     }
 
     #region checkButtonsPressed
@@ -177,5 +189,14 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    public void FillPowerBar(int amount) 
+    {
+        powerBar.fillAmount += amount/100;
+    }
+    public void ReducePowerBar(int amount) 
+    {
+        powerBar.fillAmount -= amount/100;
+
+    }
 
 }
