@@ -10,6 +10,7 @@ TagManager:
   - Rage
   - Slime
   - EnemyHealthBar
+  - PowerToken
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     private PlayerHandler playerHandler;
     private Rigidbody2D playerRb;
-    public bool collectedPowerUp;
     private bool isOnPlatform;
     public bool getIsOnPlatform 
     {
@@ -96,12 +95,7 @@ public class Player : MonoBehaviour
         {
             isHurt = true;
         }
-        if (collision.gameObject.tag=="PowerToken") 
-        {
-            collectedPowerUp = true;
-            Destroy(collision.gameObject);
-        }
-       
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -113,10 +107,7 @@ public class Player : MonoBehaviour
         {
             isHurt= false;
         }
-        if (collision.gameObject.tag == "PowerToken")
-        {
-            collectedPowerUp = false;
-        }
+
     }
 
 

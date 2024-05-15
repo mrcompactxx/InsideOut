@@ -31,14 +31,12 @@ public class PlayerHandler : MonoBehaviour
         get { return isRespawned; }
     }
     [SerializeField]private Image healthBar;
-    [SerializeField]public Image powerBar;
 
     void Start()
     {
         player.transform.position = spawnLocation.transform.position;
         powerButton = FindAnyObjectByType<PowerButton>();
-        powerBar.color = Color.white;
-        powerBar.fillAmount = 0;
+
         powersHandler = FindAnyObjectByType<PowersHandler>();
         forwardButton = FindAnyObjectByType<ForwardButton>();
         backwardButton = FindAnyObjectByType<BackwardButton>();
@@ -59,32 +57,6 @@ public class PlayerHandler : MonoBehaviour
         if (playerObject.getIsHurt) 
         {
             HealthReduced(healthBar,damage);
-        }
-        if (playerObject.getPowerName == "Rage" && playerObject.getPowerSelected)
-        {
-            powerBar.fillAmount = 1;
-            powerBar.color = Color.red;
-        }
-        else if (playerObject.getPowerName=="Calm" && playerObject.getPowerSelected) 
-        {   
-            powerBar.fillAmount = 1;
-            powerBar.color = Color.blue;
-        }
-        if (playerObject.collectedPowerUp && powerBar.fillAmount!=1) 
-        {
-            FillPowerBar(30);
-        }
-        if (powerButton==null) 
-        {
-            powerButton= FindAnyObjectByType<PowerButton>();
-        }
-        if (powerButton!=null) 
-        {
-            if (powerButton.isPressed) 
-            {
-                Debug.Log("Pressed");
-                ReducePowerBar(70);
-            }
         }
     }
 
@@ -205,16 +177,6 @@ public class PlayerHandler : MonoBehaviour
             isRespawned = true;
             SceneManager.LoadScene(0);
         }
-    }
-
-    public void FillPowerBar(int amount) 
-    {
-        powerBar.fillAmount += (amount/100)*Time.deltaTime;
-    }
-    public void ReducePowerBar(int amount) 
-    {
-        powerBar.fillAmount -= (amount/100)*Time.deltaTime;
-
     }
 
 }
