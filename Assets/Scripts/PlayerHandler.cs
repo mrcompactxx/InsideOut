@@ -14,6 +14,7 @@ public class PlayerHandler : MonoBehaviour
 
     [SerializeField] private Animator playerAnimator;
     [SerializeField]private GameObject platform;
+    private PowerButton powerButton;
     [SerializeField] private GameObject powersAnimations;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject power;
@@ -35,7 +36,7 @@ public class PlayerHandler : MonoBehaviour
     void Start()
     {
         player.transform.position = spawnLocation.transform.position;
-
+        powerButton = FindAnyObjectByType<PowerButton>();
         powerBar.color = Color.white;
         powerBar.fillAmount = 0;
         powersHandler = FindAnyObjectByType<PowersHandler>();
@@ -68,6 +69,22 @@ public class PlayerHandler : MonoBehaviour
         {   
             powerBar.fillAmount = 1;
             powerBar.color = Color.blue;
+        }
+        if (playerObject.collectedPowerUp && powerBar.fillAmount!=1) 
+        {
+            FillPowerBar(30);
+        }
+        if (powerButton==null) 
+        {
+            powerButton= FindAnyObjectByType<PowerButton>();
+        }
+        if (powerButton!=null) 
+        {
+            if (powerButton.isPressed) 
+            {
+                Debug.Log("Pressed");
+                ReducePowerBar(70);
+            }
         }
     }
 
@@ -167,6 +184,8 @@ public class PlayerHandler : MonoBehaviour
     }
 
     #endregion
+
+    #region HealthReduced
     private void HealthReduced(Image healthBar,float damage) 
     {
         Respawn(healthBar);
@@ -177,13 +196,12 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    #endregion
     private void Respawn(Image health)
     {
         if (health.fillAmount == 0)
         {
             player.gameObject.transform.position = spawnLocation.transform.position;
-            health.fillAmount = 1;
-            health.color = Color.green;
             isRespawned = true;
             SceneManager.LoadScene(0);
         }
@@ -191,11 +209,11 @@ public class PlayerHandler : MonoBehaviour
 
     public void FillPowerBar(int amount) 
     {
-        powerBar.fillAmount += amount/100;
+        powerBar.fillAmount += (amount/100)*Time.deltaTime;
     }
     public void ReducePowerBar(int amount) 
     {
-        powerBar.fillAmount -= amount/100;
+        powerBar.fillAmount -= (amount/100)*Time.deltaTime;
 
     }
 
