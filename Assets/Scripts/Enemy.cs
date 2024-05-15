@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         {
             isCollided = true;
         }
-
+      
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -40,12 +40,13 @@ public class Enemy : MonoBehaviour
         {
             isCollided=false;
         }
-
+    
     }
 
 
     public void HealthBar()
     {
+        SetDamageValue();
         healthBar.fillAmount -= (damage/100f) ;
         if (healthBar.fillAmount < 0.4f)
         {
