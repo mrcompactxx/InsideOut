@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class PlayerHandler : MonoBehaviour
     private JumpButton jumpButton;
     private PowersHandler powersHandler;
     private Player playerObject;
-    private PlayerHandler playerHandler;
+    [SerializeField]private Animator portalAnimator;
 
     [SerializeField] private Animator playerAnimator;
     [SerializeField]private GameObject platform;
@@ -32,7 +33,7 @@ public class PlayerHandler : MonoBehaviour
     }
     [SerializeField]private Image healthBar;
 
-    void Start()
+    void Awake()
     {
         player.transform.position = spawnLocation.transform.position;
         powerButton = FindAnyObjectByType<PowerButton>();
@@ -58,6 +59,12 @@ public class PlayerHandler : MonoBehaviour
         {
             HealthReduced(healthBar,damage);
         }
+        if (playerObject.atPortal) 
+        {
+            StartCoroutine(SendToNextLevel(playerObject));
+
+        }
+
     }
 
     #region checkButtonsPressed
@@ -179,4 +186,13 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
+    IEnumerator SendToNextLevel(Player player) 
+    {
+        if (player.atPortal)
+        {
+            portalAnimator.SetBool("IsPortalClose",true);
+            yield return new WaitForSeconds(0.4f);
+            SceneManager.LoadSceneAsync(1);
+        }
+    }
 }

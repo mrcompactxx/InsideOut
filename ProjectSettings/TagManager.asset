@@ -11,6 +11,7 @@ TagManager:
   - Slime
   - EnemyHealthBar
   - PowerToken
+  - Portal
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public bool atPortal;
     private PlayerHandler playerHandler;
     private Rigidbody2D playerRb;
     private bool isOnPlatform;
@@ -31,7 +32,10 @@ public class Player : MonoBehaviour
         get { return isHurt; }
     }
     public bool isFlipped;
-    void Start()
+    
+
+
+    void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerHandler = FindAnyObjectByType<PlayerHandler>();
@@ -40,12 +44,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        
+        if (playerHandler==null) 
+        {
+            playerHandler = FindAnyObjectByType<PlayerHandler>();
+
+
+        }
     }
     #region Movement()
     private void Movement() 
     {
-        if (playerHandler.forwardIsPressed)
+        if (playerHandler.forwardIsPressed && playerHandler != null)
         {
             Vector3 scale = transform.localScale;
             scale.x = 1;
@@ -110,6 +119,20 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag=="Portal") 
+        {
+            atPortal = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Portal")
+        {
+            atPortal = false;
+        }
+    }
 
-    
+
 }
