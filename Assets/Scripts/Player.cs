@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     
 
 
-    void Awake()
+    void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerHandler = FindAnyObjectByType<PlayerHandler>();
@@ -104,6 +104,10 @@ public class Player : MonoBehaviour
         {
             isHurt = true;
         }
+        if (collision.gameObject.tag=="Trap") 
+        {
+            isHurt= true;
+        }
 
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -116,7 +120,10 @@ public class Player : MonoBehaviour
         {
             isHurt= false;
         }
-
+        if (collision.gameObject.tag == "Trap")
+        {
+            isHurt = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

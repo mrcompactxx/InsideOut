@@ -32,8 +32,9 @@ public class PlayerHandler : MonoBehaviour
         get { return isRespawned; }
     }
     [SerializeField]private Image healthBar;
+    private bool loadedNextLevel;
 
-    void Awake()
+    void Start()
     {
         player.transform.position = spawnLocation.transform.position;
         powerButton = FindAnyObjectByType<PowerButton>();
@@ -61,7 +62,12 @@ public class PlayerHandler : MonoBehaviour
         }
         if (playerObject.atPortal) 
         {
-            StartCoroutine(SendToNextLevel(playerObject));
+            if (!loadedNextLevel) 
+            {
+                StartCoroutine(SendToNextLevel(playerObject));
+                loadedNextLevel = true;
+            }
+            
 
         }
 
@@ -103,6 +109,8 @@ public class PlayerHandler : MonoBehaviour
     //Enables the platform animations
     private void EnablePlantAnimations(Player player) 
     {
+        if (player!=null) 
+        {
         if (player.getIsOnPlatform)
         {
             platform.SetActive(true);
@@ -112,6 +120,8 @@ public class PlayerHandler : MonoBehaviour
                 powersAnimations.SetActive(false);
             }
         }
+        }
+        
         
       
     }
@@ -192,7 +202,8 @@ public class PlayerHandler : MonoBehaviour
         {
             portalAnimator.SetBool("IsPortalClose",true);
             yield return new WaitForSeconds(0.4f);
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadScene(1);
         }
     }
+
 }

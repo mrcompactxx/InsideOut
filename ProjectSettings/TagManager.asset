@@ -12,6 +12,7 @@ TagManager:
   - EnemyHealthBar
   - PowerToken
   - Portal
+  - Trap
   layers:
   - Default
   - TransparentFX
