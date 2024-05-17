@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TrapHandler : MonoBehaviour
 {
-    private GameObject plantTrap;
+    [SerializeField]private GameObject plantTrap;
     Rigidbody2D rigidBody;
     private bool isOnGround;
     [SerializeField]private float jump;
@@ -28,7 +28,7 @@ public class TrapHandler : MonoBehaviour
             Jump();
         }
         Erupt(collidedWithPlayer);
-        DestroyTrap(isHurt);
+        DestroyPower(isHurt);
     }
 
     private void Jump() 
@@ -48,9 +48,22 @@ public class TrapHandler : MonoBehaviour
 
     IEnumerator DestroyPlantTrap() 
     {
+        
         animator.SetBool("Erupt",true);
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
+        
+    }
+
+    private void DestroyPower(bool isHurt)
+    {
+        if (isHurt)
+        {
+            this.gameObject.transform.localScale = new Vector3(6,6,6);
+            animator.SetBool("Erupt", true);
+            Destroy(gameObject,1);
+            Destroy(power.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -85,15 +98,9 @@ public class TrapHandler : MonoBehaviour
         }
     }
 
-    private void DestroyTrap(bool isHurt) 
-    {
-        if (isHurt) 
-        {
-            Destroy(gameObject);
-            Destroy(power.gameObject);
-        }
+
         
     }
 
 
-}
+
