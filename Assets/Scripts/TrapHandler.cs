@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class TrapHandler : MonoBehaviour
 {
-    [SerializeField]private GameObject plantTrap;
+    private GameObject plantTrap;
     Rigidbody2D rigidBody;
     private bool isOnGround;
     [SerializeField]private float jump;
     private Animator animator;
     private bool collidedWithPlayer;
+    private bool isHurt;
+    private GameObject power;
     private SpriteRenderer spriteRenderer;
     void Start()
     {
@@ -26,6 +28,7 @@ public class TrapHandler : MonoBehaviour
             Jump();
         }
         Erupt(collidedWithPlayer);
+        DestroyTrap(isHurt);
     }
 
     private void Jump() 
@@ -40,6 +43,7 @@ public class TrapHandler : MonoBehaviour
             spriteRenderer.color = Color.red;
             StartCoroutine(DestroyPlantTrap());
         }
+
     }
 
     IEnumerator DestroyPlantTrap() 
@@ -59,6 +63,11 @@ public class TrapHandler : MonoBehaviour
         {
             collidedWithPlayer = true;
         }
+        if (collision.gameObject.tag == "Rage"|| collision.gameObject.tag=="Calm")
+        {
+            power = collision.gameObject;
+            isHurt = true;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -70,16 +79,21 @@ public class TrapHandler : MonoBehaviour
         {
             collidedWithPlayer = false;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-     
+        if (collision.gameObject.tag=="Rage"|| collision.gameObject.tag=="Calm") 
+        {
+            isHurt = false;
+        }
     }
 
+    private void DestroyTrap(bool isHurt) 
+    {
+        if (isHurt) 
+        {
+            Destroy(gameObject);
+            Destroy(power.gameObject);
+        }
+        
+    }
 
 
 }
