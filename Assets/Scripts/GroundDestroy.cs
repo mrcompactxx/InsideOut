@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class GroundDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]private float fallDelay=1f;
+    [SerializeField]private float destroyDelay=2f;
+    [SerializeField]private Rigidbody2D rb;
     void Start()
     {
-        
+        rb= GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    private IEnumerator Fall() 
+    {
+        yield return new WaitForSeconds(fallDelay);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        Destroy(gameObject,destroyDelay);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Player") 
+        {
+            StartCoroutine(Fall());
+        }
+    }
+
+
 }
