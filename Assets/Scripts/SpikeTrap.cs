@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpikeTrap : MonoBehaviour
 {
     private bool isOnGround;
+    private Animator animator;
     [SerializeField]private Rigidbody2D rigidBody;
     private Player player;
     private bool destroySpike;
@@ -14,6 +15,7 @@ public class SpikeTrap : MonoBehaviour
         speed = 0.03f;
         rigidBody = GetComponent<Rigidbody2D>();
         player = FindAnyObjectByType<Player>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -31,6 +33,7 @@ public class SpikeTrap : MonoBehaviour
             rigidBody.velocity += new Vector2(rigidBody.velocity.x, -speed);
             if (destroySpike)
             {
+                animator.SetBool("Destroy",true);
                 Destroy(this.gameObject,0.2f);
             }
         }

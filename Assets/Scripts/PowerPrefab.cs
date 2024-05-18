@@ -19,21 +19,25 @@ public class PowerPrefab : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Slime") 
+        if (collision.gameObject.tag == "Slime")
         {
             isCollidedWithEnemy = true;
-            
+
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null) 
+            if (enemy != null)
             {
                 enemy.healthBarParent.SetActive(true);
                 enemy.HealthBar();
-                if (enemy.healthBar.fillAmount==0) 
+                if (enemy.healthBar.fillAmount == 0)
                 {
                     enemy.Die();
                 }
             }
             Destroy(this.gameObject);
+        }
+        else 
+        {
+            Destroy(this.gameObject,6f);
         }
 
     }

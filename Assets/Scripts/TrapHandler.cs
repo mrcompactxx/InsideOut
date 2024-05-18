@@ -50,6 +50,7 @@ public class TrapHandler : MonoBehaviour
     {
         
         animator.SetBool("Erupt",true);
+        gameObject.transform.localScale = new Vector3(6,6,6);
         yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
         
