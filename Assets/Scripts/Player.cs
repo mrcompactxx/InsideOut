@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,8 +33,8 @@ public class Player : MonoBehaviour
         get { return isHurt; }
     }
     public bool isFlipped;
-    
 
+    public bool isOnTragGround;
 
     void Start()
     {
@@ -47,9 +48,9 @@ public class Player : MonoBehaviour
         if (playerHandler==null) 
         {
             playerHandler = FindAnyObjectByType<PlayerHandler>();
-
-
         }
+        
+        
     }
     #region Movement()
     private void Movement() 
@@ -82,7 +83,7 @@ public class Player : MonoBehaviour
     #endregion
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Ground" || collision.gameObject.tag=="Platform") 
+        if (collision.gameObject.tag=="Ground" || collision.gameObject.tag=="Platform" || collision.gameObject.tag == "TrapGround") 
         {
             isOnGround = true;
         }
@@ -100,30 +101,34 @@ public class Player : MonoBehaviour
             powerSelected = true;
             powerName = collision.gameObject.tag;
         }
-        if (collision.gameObject.tag=="Slime") 
+        if (collision.gameObject.tag=="Slime"|| collision.gameObject.tag == "Trap") 
         {
             isHurt = true;
         }
-        if (collision.gameObject.tag=="Trap") 
+        
+        if (collision.gameObject.tag=="TrapGround") 
         {
-            isHurt= true;
+            isOnTragGround = true;
         }
+        
 
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag=="Platform") 
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag=="Platform"|| collision.gameObject.tag=="TrapGround") 
         {
             isOnGround= false;
         }
-        if (collision.gameObject.tag=="Slime") 
+        if (collision.gameObject.tag=="Slime"|| collision.gameObject.tag == "Trap") 
         {
             isHurt= false;
         }
-        if (collision.gameObject.tag == "Trap")
+            
+        if (collision.gameObject.tag == "TrapGround")
         {
-            isHurt = false;
+            isOnTragGround = false;
         }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -139,6 +144,7 @@ public class Player : MonoBehaviour
         {
             atPortal = false;
         }
+
     }
 
 

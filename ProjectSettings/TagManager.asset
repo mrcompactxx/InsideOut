@@ -13,6 +13,7 @@ TagManager:
   - PowerToken
   - Portal
   - Trap
+  - TrapGround
   layers:
   - Default
   - TransparentFX

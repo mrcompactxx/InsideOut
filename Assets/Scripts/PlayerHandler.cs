@@ -70,7 +70,7 @@ public class PlayerHandler : MonoBehaviour
             
 
         }
-
+        
     }
 
     #region checkButtonsPressed
