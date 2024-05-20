@@ -20,5 +20,14 @@ public class BackgroundHandler : MonoBehaviour
 
         Vector3 newPosition = new Vector3 (startingPos+distance, transform.position.y, transform.position.z);
         transform.position = newPosition;
+
+        if (temp > startingPos + lenghtOfSprite)
+        {
+            startingPos += lenghtOfSprite;
+        }
+        else if (temp<startingPos-lenghtOfSprite) 
+        {
+            startingPos -= lenghtOfSprite;
+        }
     }
 }
