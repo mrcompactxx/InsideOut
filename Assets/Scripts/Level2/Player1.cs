@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
+    public GameObject powerSelected;
+
     private bool isOnGround;
     private Rigidbody2D rb;
 
@@ -58,17 +60,41 @@ public class Player1 : MonoBehaviour
             animator.SetBool("IsWalk", true);
             animator.SetBool("IsJump", false);
         }
-      
-        if (jumpButton.isPressed)
+
+        if (jumpButton.isPressed && isOnGround)
         {
+
             rb.velocity = new Vector2(rb.velocity.x, jump);
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalk", false);
             animator.SetBool("IsJump", true);
+
         }
+       
         
     }
     #endregion
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Ground")
+        {
+                isOnGround = true;
+        }
+        if (collision.gameObject.tag=="Summon") 
+        {
+            powerSelected = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Ground") 
+        {
+            isOnGround= false;
+        }
+       
+    }
 
 }
 
