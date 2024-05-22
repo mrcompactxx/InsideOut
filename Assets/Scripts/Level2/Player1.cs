@@ -16,6 +16,7 @@ public class Player1 : MonoBehaviour
     private SpriteRenderer playerRenderer;
     private Animator animator;
 
+    public bool isFlipped;
     [SerializeField]private float speed;
     [SerializeField]private float jump;
     void Start()
@@ -50,6 +51,7 @@ public class Player1 : MonoBehaviour
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalk", true);
             animator.SetBool("IsJump", false);
+            isFlipped = false;
         }
 
         if (backwardButton.isPressed) 
@@ -59,6 +61,7 @@ public class Player1 : MonoBehaviour
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalk", true);
             animator.SetBool("IsJump", false);
+            isFlipped = true;
         }
 
         if (jumpButton.isPressed && isOnGround)
