@@ -16,6 +16,9 @@ TagManager:
   - TrapGround
   - Summon
   - Dash
+  - Skeleton Enemy
+  - Enemy
+  - NightBorne
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - FarClouds
   - Mountains
   - FarMountains
-  - 
+  - Action
   - 
   - 
   - 

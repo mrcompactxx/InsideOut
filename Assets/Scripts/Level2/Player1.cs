@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player1 : MonoBehaviour
 {
     public GameObject powerSelected;
-
+    [SerializeField]private Image healthBar;
     private bool isOnGround;
     private Rigidbody2D rb;
 
@@ -46,7 +49,7 @@ public class Player1 : MonoBehaviour
 
         if (forwardButton.isPressed)
         {
-            playerRenderer.flipX = false;
+            transform.localScale = new Vector3(1,1,1);
             rb.velocity = new Vector2(speed, rb.velocity.y);
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalk", true);
@@ -56,7 +59,7 @@ public class Player1 : MonoBehaviour
 
         if (backwardButton.isPressed) 
         {
-            playerRenderer.flipX = true;
+            transform.localScale = new Vector3(-1,1,1);
             rb.velocity = new Vector2((-speed),rb.velocity.y);
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalk", true);
@@ -97,6 +100,15 @@ public class Player1 : MonoBehaviour
             isOnGround= false;
         }
        
+    }
+
+    public void ReduceHealth(float damage)
+    {
+        healthBar.fillAmount -= damage/1000f*Time.deltaTime;
+        if (healthBar.fillAmount==0) 
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
 }

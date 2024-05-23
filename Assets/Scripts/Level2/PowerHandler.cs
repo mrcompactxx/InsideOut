@@ -5,11 +5,15 @@ using UnityEngine;
 public class PowerHandler : MonoBehaviour
 {
     private Player1 player;
+
+    [SerializeField]private GameObject playerObj;
+    private SpriteRenderer playerSpriteRenderer;
     private bool enabledButton;
     private PowerButton powerButton;
     private GameObject power;
     private GameObject summonedEnemy;
     [SerializeField]private GameObject powerButtonGameObject;
+    private bool changed;
     private bool isSummoned;
     void Start()
     {
@@ -19,9 +23,16 @@ public class PowerHandler : MonoBehaviour
 
     void Update()
     {
-        if (player.isFlipped) 
+
+        if (playerObj.transform.localScale== new Vector3(1,1,1) && !changed) 
         {
-            
+            transform.Rotate(0,0f,0);
+            changed = true;
+        }
+        if (playerObj.transform.localScale == new Vector3(-1, 1, 1) && changed)
+        {
+            transform.Rotate(0, 180f, 0);
+            changed = false;
         }
 
         if (player.powerSelected && !enabledButton) 
@@ -42,10 +53,10 @@ public class PowerHandler : MonoBehaviour
             {
                 if (!isSummoned)
                 {
-                    summonedEnemy = Instantiate(power,this.transform.position,Quaternion.identity);
+                    summonedEnemy = Instantiate(power,transform.position,Quaternion.identity);
                     summonedEnemy.transform.position = new Vector3(summonedEnemy.transform.position.x,summonedEnemy.transform.position.y,-2.09f);
                     isSummoned = true;
-                   
+                    
                 }
             }   
         }
@@ -59,6 +70,7 @@ public class PowerHandler : MonoBehaviour
         {
             power = Resources.Load<GameObject>("NightBorne");
         }
-    
     }
+
+
 }
