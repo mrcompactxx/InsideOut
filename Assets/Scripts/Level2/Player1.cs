@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Player1 : MonoBehaviour
 {
+    [SerializeField]private Transform teleportLocation;
     public GameObject powerSelected;
     [SerializeField]private Image healthBar;
     private bool isOnGround;
@@ -18,12 +19,15 @@ public class Player1 : MonoBehaviour
 
     private SpriteRenderer playerRenderer;
     private Animator animator;
-
+    private GameObject power;
+    [SerializeField]private GameObject powerButton;
     public bool isFlipped;
     [SerializeField]private float speed;
     [SerializeField]private float jump;
+    private bool enabledButton;
     void Start()
     {
+
         animator = GetComponent<Animator>();
         playerRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +40,15 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
+        
+        if (power!=null && !enabledButton) 
+        {
+            powerButton.SetActive(true);
+            enabledButton = true;
+        }
+        {
+            
+        }
         Movement();
     }
 
@@ -90,6 +103,15 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.tag=="Summon") 
         {
             powerSelected = collision.gameObject;
+        }
+        if (collision.gameObject.tag=="Teleport") 
+        {
+            transform.position = teleportLocation.transform.position;
+        }
+        if (collision.gameObject.tag=="Calm") 
+        {
+            power = Resources.Load<GameObject>(collision.gameObject.tag);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,9 +43,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -134,7 +134,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pipo-gate01a_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1016
+        width: 381
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b210e77b5019cda43aa5bea3b6c46839
+      internalID: 1771725030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_3
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1015
+        width: 396
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495a790adbf7e5d469479b53548a88e5
+      internalID: 596575634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_4
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 1199
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7e445f2d47f2e4abcfcfe044263175
+      internalID: -67316826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_5
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1014
+        width: 377
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2cf097511d7cd4fb0c286e5f02afff
+      internalID: 1265053286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_6
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 1006
+        width: 382
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241075448ab6c334c89f1886c41dfb75
+      internalID: -1616461758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_7
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 992
+        width: 398
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c41458d7ff969645a9c87aefa790be7
+      internalID: -1527156811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 535
+        width: 388
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e66af592a032f147a54cc6d9cb39af2
+      internalID: -941941350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_9
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 535
+        width: 392
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3377b8ea3c0ae8459c053658f505ccd
+      internalID: -2144478340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_10
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 535
+        width: 403
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2a828abab784d42b914e4fbb1d0959
+      internalID: -1428573153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_11
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 535
+        width: 372
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbcbe82e39cb77f4ea9e7c5d49e8d08b
+      internalID: 61511053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_12
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 535
+        width: 380
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71b7ef3bc3287c479ad4be74912d227
+      internalID: -914531049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_17
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 622
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f984a079e324e1b4bb647c3ab1b42b95
+      internalID: 1936168529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_20
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 47
+        width: 393
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7a014488f7de94ab5abdc8e4a67e94
+      internalID: -399451723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_22
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 34
+        width: 416
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde45076ab6927d4f9573dd15e4d4c11
+      internalID: 613697575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_23
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 57
+        width: 413
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f8099a94952624686b63b56dad21db
+      internalID: -2141771135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_24
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 53
+        width: 438
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d00807c95c4734a9af8ef577ceac1d
+      internalID: 224754767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01a_25
+      rect:
+        serializedVersion: 2
+        x: 1976
+        y: 49
+        width: 391
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6de8794a4d0f714ea20518351a16b0c
+      internalID: 1963668677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +502,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pipo-gate01a_0: 1463171976
+      pipo-gate01a_1: 953747067
+      pipo-gate01a_10: -1428573153
+      pipo-gate01a_11: 61511053
+      pipo-gate01a_12: -914531049
+      pipo-gate01a_13: 733166311
+      pipo-gate01a_14: 757483041
+      pipo-gate01a_15: 2070206227
+      pipo-gate01a_16: -1570747708
+      pipo-gate01a_17: 1936168529
+      pipo-gate01a_18: -27032164
+      pipo-gate01a_19: -105674573
+      pipo-gate01a_2: 1771725030
+      pipo-gate01a_20: -399451723
+      pipo-gate01a_21: 869253039
+      pipo-gate01a_22: 613697575
+      pipo-gate01a_23: -2141771135
+      pipo-gate01a_24: 224754767
+      pipo-gate01a_25: 1963668677
+      pipo-gate01a_26: -1411414421
+      pipo-gate01a_27: 1037445365
+      pipo-gate01a_28: -1458317092
+      pipo-gate01a_29: 61596187
+      pipo-gate01a_3: 596575634
+      pipo-gate01a_30: 424996692
+      pipo-gate01a_31: -691882997
+      pipo-gate01a_32: 884742560
+      pipo-gate01a_33: 1763500345
+      pipo-gate01a_34: -236934002
+      pipo-gate01a_4: -67316826
+      pipo-gate01a_5: 1265053286
+      pipo-gate01a_6: -1616461758
+      pipo-gate01a_7: -1527156811
+      pipo-gate01a_8: -941941350
+      pipo-gate01a_9: -2144478340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,6 +19,8 @@ TagManager:
   - Skeleton Enemy
   - Enemy
   - NightBorne
+  - Lift
+  - Teleport
   layers:
   - Default
   - TransparentFX

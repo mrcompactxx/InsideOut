@@ -20,7 +20,7 @@ public class SpikeTrap : MonoBehaviour
 
     void Update()
     {
-        isOnGround = player.isOnTragGround;
+        isOnGround = player.isOnTrapGround;
         Attack(isOnGround);
 
         

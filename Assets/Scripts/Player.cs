@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     }
     public bool isFlipped;
 
-    public bool isOnTragGround;
+    public bool isOnTrapGround;
 
     void Start()
     {
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         
         if (collision.gameObject.tag=="TrapGround") 
         {
-            isOnTragGround = true;
+            isOnTrapGround = true;
         }
         
 
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             
         if (collision.gameObject.tag == "TrapGround")
         {
-            isOnTragGround = false;
+            isOnTrapGround = false;
         }
        
     }
