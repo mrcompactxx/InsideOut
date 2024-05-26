@@ -12,12 +12,12 @@ public class Player1 : MonoBehaviour
     [SerializeField]private Image healthBar;
     private bool isOnGround;
     private Rigidbody2D rb;
+    private bool collidedWithTrap;
 
     private ForwardButton forwardButton;
     private BackwardButton backwardButton;
     private JumpButton jumpButton;
 
-    private SpriteRenderer playerRenderer;
     private Animator animator;
     private GameObject power;
     [SerializeField]private GameObject powerButton;
@@ -27,9 +27,7 @@ public class Player1 : MonoBehaviour
     private bool enabledButton;
     void Start()
     {
-
         animator = GetComponent<Animator>();
-        playerRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
@@ -46,8 +44,9 @@ public class Player1 : MonoBehaviour
             powerButton.SetActive(true);
             enabledButton = true;
         }
+        if (collidedWithTrap) 
         {
-            
+            ReduceHealth(80);
         }
         Movement();
     }
@@ -113,6 +112,14 @@ public class Player1 : MonoBehaviour
             power = Resources.Load<GameObject>(collision.gameObject.tag);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag=="Trap") 
+        {
+            collidedWithTrap = true;
+        }
+        if (collision.gameObject.tag == "Portal")
+        {
+            SceneManager.LoadScene(2);
+            }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -121,7 +128,10 @@ public class Player1 : MonoBehaviour
         {
             isOnGround= false;
         }
-       
+        if (collision.gameObject.tag=="Trap") 
+        {
+            collidedWithTrap= false;
+        }
     }
 
     public void ReduceHealth(float damage)
