@@ -106,7 +106,7 @@ public class Player1 : MonoBehaviour
         }
         if (collision.gameObject.tag=="Teleport") 
         {
-            transform.position = teleportLocation.transform.position;
+            transform.position = new Vector3(teleportLocation.transform.position.x,teleportLocation.transform.position.y+2,teleportLocation.transform.position.z);
         }
         if (collision.gameObject.tag=="Calm") 
         {
