@@ -122,6 +122,7 @@ public class Player1 : MonoBehaviour
             }
     }
 
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag=="Ground") 
