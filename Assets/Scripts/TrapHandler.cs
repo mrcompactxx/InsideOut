@@ -97,11 +97,8 @@ public class TrapHandler : MonoBehaviour
         {
             isHurt = false;
         }
+
     }
 
-
-        
-    }
-
-
+}
 

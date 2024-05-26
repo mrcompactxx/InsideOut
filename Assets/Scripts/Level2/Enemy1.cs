@@ -28,7 +28,10 @@ public class Enemy1 : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed*Time.deltaTime);
         }
-
+        if (collidedPlayer) 
+        {
+            player1.ReduceHealth(45);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +39,7 @@ public class Enemy1 : MonoBehaviour
         if (collision.gameObject.tag=="Player") 
         {
             collidedPlayer = true;
-            player1.ReduceHealth(23f);
+            
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
