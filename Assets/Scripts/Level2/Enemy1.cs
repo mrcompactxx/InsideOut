@@ -4,15 +4,47 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool collidedPlayer;
+    private Animator animator;
+    [SerializeField]private GameObject player;
+    private Player1 player1;
+    [SerializeField]private float speed;
     void Start()
     {
-        
+        player1 = FindAnyObjectByType<Player1>();
+        animator = GetComponent<Animator>();
+        speed = 5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Attack();
     }
+
+    private void Attack() 
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance<10f) 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed*Time.deltaTime);
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Player") 
+        {
+            collidedPlayer = true;
+            player1.ReduceHealth(23f);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collidedPlayer = false;
+        }
+    }
+
 }

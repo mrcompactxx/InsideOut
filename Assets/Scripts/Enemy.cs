@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     private bool isCollided;
     private Animator enemyAnimator;
     [SerializeField] public GameObject healthBarParent;
-    private Player playerObject;
+    [SerializeField]private Player playerObject;
     [SerializeField] public Image healthBar;
     [SerializeField]private GameObject deathEffect;
     [SerializeField] private float damage;

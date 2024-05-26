@@ -21,6 +21,7 @@ TagManager:
   - NightBorne
   - Lift
   - Teleport
+  - TeleportNextLevel
   layers:
   - Default
   - TransparentFX
