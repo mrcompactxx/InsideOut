@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireTrao : MonoBehaviour
+public class Spike : MonoBehaviour
 {
-    PlayerHandler2 playerHandler;
+    private PlayerHandler2 playerHandler;
     void Start()
     {
         playerHandler = FindAnyObjectByType<PlayerHandler2>();
@@ -12,20 +12,20 @@ public class FireTrao : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Player")
+        if (collision.gameObject.tag == "Player")
         {
             playerHandler.isHurt = true;
             playerHandler.trapName = this.gameObject.name;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Player") 
+        if (collision.gameObject.tag == "Player")
         {
             playerHandler.isHurt = false;
             playerHandler.trapName = this.gameObject.name;
