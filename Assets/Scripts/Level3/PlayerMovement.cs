@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private JumpButton jumpButton;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-
     private Rigidbody2D rb;
+    
+    private bool playerArrived;
     [SerializeField]private float speed;
     [SerializeField]private float jump;
     private bool onGround;  
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         speed = 10f;
-        jump = 15f;
+        jump = 25f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>(); 
@@ -28,12 +29,12 @@ public class PlayerMovement : MonoBehaviour
         jumpButton = FindAnyObjectByType<JumpButton>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Movement();
     }
 
-
+    #region Movement()
     private void Movement() 
     {
         EnableAnimations();
@@ -51,17 +52,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x,jump);
         }
+    }
+    #endregion
 
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        onGround = true;        
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        onGround = false;
-    }
-
+    #region EnableAnimations()
     private void EnableAnimations()
     {
         animator.SetBool("IsIdle", true);
@@ -87,8 +81,41 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void EnableSadEmotion()
-    {
+    #endregion
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        onGround = true;        
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        onGround = false;
+    }
+
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag=="PathLocation") 
+        {
+            playerArrived = true;
+        }
+        if (collision.gameObject.tag == "Path1")
+        {
+            if (collision.gameObject.tag == "Path2")
+            {
+                if (collision.gameObject.tag == "Path3")
+                {
+                    if (collision.gameObject.tag == "Path4")
+                    {
+                        WonGame();
+                    }
+                }
+            }
+        }
+    }
+
+    private void WonGame() 
+    {
+        Debug.Log("Won");
     }
 }

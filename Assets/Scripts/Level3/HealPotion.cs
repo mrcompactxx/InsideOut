@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealPotion : MonoBehaviour
 {
     private PlayerHandler2 playerHandler;
-
+    private bool collided;
     void Start()
     {
         playerHandler = FindAnyObjectByType<PlayerHandler2>();

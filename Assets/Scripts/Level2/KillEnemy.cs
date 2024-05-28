@@ -10,14 +10,12 @@ public class KillEnemy : MonoBehaviour
     private SkeletonEnemy skeletonEnemy;
     private Animator animator;
     [SerializeField] Transform castPoint;
-    [SerializeField]private float distance;
     SpriteRenderer spriteRenderer;
     private bool attacked;
     private float speed;
     void Start()
     {
         speed = 8f;
-        distance = 10f;
         animator = GetComponent<Animator>();
         enemy = GameObject.FindGameObjectWithTag("Skeleton Enemy");
         spriteRenderer = GetComponent<SpriteRenderer>();

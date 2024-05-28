@@ -10,11 +10,11 @@ public class PlayerHandler2 : MonoBehaviour
     public string trapName;
     private float damage;
     private float heal;
+    private bool cutterCollided;
     public string potionName;
     [SerializeField]private Image HealthBar;
     void Start()
     {
-
     }
 
     private void Update()
@@ -37,14 +37,18 @@ public class PlayerHandler2 : MonoBehaviour
             damage = 40f;
             HealthBar.fillAmount -= (damage / 100f) * Time.deltaTime;
         }
-        
+        if (cutterCollided) 
+        {
+            damage = 100f;
+            HealthBar.fillAmount -= (damage / 100f) * Time.deltaTime;
+        }
     }
 
     public void IncreaseHealth(string potionName) 
     {
-        if (potionName=="Health") 
+        if (potionName=="Potion") 
         {
-            heal = 100f;
+            heal = 1000f;
             HealthBar.fillAmount += (heal/100f)*Time.deltaTime;
         }
     }
@@ -55,5 +59,29 @@ public class PlayerHandler2 : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }   
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Path1")
+        {
+            SceneManager.LoadScene(3);
+        }
+        if (collision.gameObject.tag=="Path2") 
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (collision.gameObject.tag=="Cutter") 
+        {
+            cutterCollided = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Cutter")
+        {
+            cutterCollided = false;
+            
+        }
     }
 }

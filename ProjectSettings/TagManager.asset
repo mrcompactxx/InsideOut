@@ -23,6 +23,14 @@ TagManager:
   - Teleport
   - TeleportNextLevel
   - Potion
+  - PathLocation
+  - Lamp1
+  - Lamp2
+  - Lamp3
+  - Lamp4
+  - Path1
+  - Path2
+  - Cutter
   layers:
   - Default
   - TransparentFX

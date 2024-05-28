@@ -16,6 +16,7 @@ public class TrapHandler : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     void Start()
     {
+        jump = 10f;
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent <SpriteRenderer>();
         animator = GetComponent <Animator>();
