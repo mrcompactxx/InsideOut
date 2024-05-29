@@ -85,11 +85,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        onGround = true;        
+        if (collision.gameObject.tag=="Ground") 
+        {
+            onGround = true;
+        }
+                
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        onGround = false;
+        if (collision.gameObject.tag == "Ground")
+        {
+            onGround = false;
+        }
     }
 
     

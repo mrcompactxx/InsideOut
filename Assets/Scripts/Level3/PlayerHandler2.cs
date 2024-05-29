@@ -37,11 +37,17 @@ public class PlayerHandler2 : MonoBehaviour
             damage = 40f;
             HealthBar.fillAmount -= (damage / 100f) * Time.deltaTime;
         }
-        if (cutterCollided) 
+        if (trap == "Bomb")
         {
             damage = 100f;
             HealthBar.fillAmount -= (damage / 100f) * Time.deltaTime;
         }
+        if (cutterCollided) 
+        {
+            damage = 80f;
+            HealthBar.fillAmount -= (damage / 100f) * Time.deltaTime;
+        }
+       
     }
 
     public void IncreaseHealth(string potionName) 
@@ -57,7 +63,7 @@ public class PlayerHandler2 : MonoBehaviour
     {
         if (HealthBar.fillAmount<=0)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }   
     }
 
@@ -65,12 +71,9 @@ public class PlayerHandler2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Path1")
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
-        if (collision.gameObject.tag=="Path2") 
-        {
-            SceneManager.LoadScene(0);
-        }
+      
         if (collision.gameObject.tag=="Cutter") 
         {
             cutterCollided = true;

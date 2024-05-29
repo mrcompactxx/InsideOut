@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public bool atPortal;
+    public int amount;
     private PlayerHandler playerHandler;
     private Rigidbody2D playerRb;
     private bool isOnPlatform;
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
         {
             playerHandler = FindAnyObjectByType<PlayerHandler>();
         }
-        
+
         
     }
     #region Movement()
@@ -110,7 +111,8 @@ public class Player : MonoBehaviour
         {
             isOnTrapGround = true;
         }
-        
+
+
 
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -128,7 +130,9 @@ public class Player : MonoBehaviour
         {
             isOnTrapGround = false;
         }
-       
+
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -137,6 +141,7 @@ public class Player : MonoBehaviour
         {
             atPortal = true;
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

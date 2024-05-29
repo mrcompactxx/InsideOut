@@ -67,10 +67,8 @@ public class PlayerHandler : MonoBehaviour
                 StartCoroutine(SendToNextLevel(playerObject));
                 loadedNextLevel = true;
             }
-            
-
         }
-        
+
     }
 
     #region checkButtonsPressed
@@ -190,9 +188,8 @@ public class PlayerHandler : MonoBehaviour
     {
         if (health.fillAmount == 0)
         {
-            player.gameObject.transform.position = spawnLocation.transform.position;
             isRespawned = true;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -202,8 +199,12 @@ public class PlayerHandler : MonoBehaviour
         {
             portalAnimator.SetBool("IsPortalClose",true);
             yield return new WaitForSeconds(0.4f);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
+    }
+    public void HealthIncrease() 
+    {
+            healthBar.fillAmount += (1000f/ 100f) * Time.deltaTime;
     }
 
 }

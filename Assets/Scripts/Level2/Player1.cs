@@ -118,7 +118,7 @@ public class Player1 : MonoBehaviour
         }
         if (collision.gameObject.tag == "Portal")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             }
     }
 
@@ -140,7 +140,7 @@ public class Player1 : MonoBehaviour
         healthBar.fillAmount -= damage/1000f*Time.deltaTime;
         if (healthBar.fillAmount==0) 
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 

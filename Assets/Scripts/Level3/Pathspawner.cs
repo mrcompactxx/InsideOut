@@ -60,7 +60,6 @@ public class Pathspawner : MonoBehaviour
         {
             sprites[0].color = Color.white;
             lamp1 = true;
-            Debug.Log("Collided1");
         }
         else
         {
