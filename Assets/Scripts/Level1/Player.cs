@@ -142,6 +142,7 @@ public class Player : MonoBehaviour
             atPortal = true;
         }
 
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

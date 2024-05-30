@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
     private bool playerCollided;
     void Start()
     {
+        text = FindAnyObjectByType<TextMeshProUGUI>();
         coinManager = FindAnyObjectByType<CoinManager>();
     }
 
@@ -20,7 +21,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject==player) 
+        if (collision.gameObject.tag=="Player") 
         {
             playerCollided = true;
             coinManager.amount = coinManager.amount + 1;
