@@ -35,6 +35,7 @@ public class AudioHandler : MonoBehaviour
             playPowerSelectSound(soundNum);
             isPlayed = true;
         }
+
         
     }
 
@@ -44,6 +45,8 @@ public class AudioHandler : MonoBehaviour
         source.Play();
     
     }
+
+
 
     public void playPowerSelectSound(int sound) 
     {
@@ -58,10 +61,13 @@ public class AudioHandler : MonoBehaviour
             soundNum = 1;
             isCollided = true;
         }
+ 
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         isCollided=false;
+
     }
 
 }

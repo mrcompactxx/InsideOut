@@ -205,6 +205,10 @@ public class PlayerHandler : MonoBehaviour
     public void HealthIncrease() 
     {
             healthBar.fillAmount += (1000f/ 100f) * Time.deltaTime;
+            if (healthBar.fillAmount>0.4) 
+            {
+            healthBar.color = Color.green;
+            }
     }
 
 }

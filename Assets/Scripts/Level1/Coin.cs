@@ -6,10 +6,12 @@ public class Coin : MonoBehaviour
 {
     public TextMeshProUGUI text;
     [SerializeField]private GameObject player;
+    [SerializeField]private AudioSource audioSource;
     private CoinManager coinManager;
     private bool playerCollided;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         text = FindAnyObjectByType<TextMeshProUGUI>();
         coinManager = FindAnyObjectByType<CoinManager>();
     }
@@ -23,6 +25,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag=="Player") 
         {
+            audioSource.Play();
             playerCollided = true;
             coinManager.amount = coinManager.amount + 1;
             IncreaseCoinAmount();

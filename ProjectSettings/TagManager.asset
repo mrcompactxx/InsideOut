@@ -33,6 +33,7 @@ TagManager:
   - Cutter
   - Bomb
   - Coin
+  - Chest
   layers:
   - Default
   - TransparentFX
