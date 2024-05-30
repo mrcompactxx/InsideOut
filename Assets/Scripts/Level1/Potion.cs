@@ -19,7 +19,6 @@ public class Potion : MonoBehaviour
     {
         if (collision.gameObject.tag=="Player") 
         {
-            Debug.Log("hello");
             playerHandler.HealthIncrease();
             Destroy(gameObject);
         }
