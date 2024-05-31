@@ -22,7 +22,7 @@ public class CoinAmount : MonoBehaviour
 
     void Update()
     {
-
+        PlayerPrefs.SetInt("Level2Coins",amount);
     }
 
     public void IncreaseAmount() 

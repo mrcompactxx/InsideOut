@@ -19,7 +19,7 @@ public class Player1 : MonoBehaviour
     private JumpButton jumpButton;
 
     private Animator animator;
-    private GameObject power;
+    [SerializeField]public GameObject power;
     [SerializeField]private GameObject powerButton;
     public bool isFlipped;
     [SerializeField]private float speed;
@@ -107,7 +107,7 @@ public class Player1 : MonoBehaviour
         {
             transform.position = new Vector3(teleportLocation.transform.position.x,teleportLocation.transform.position.y+2,teleportLocation.transform.position.z);
         }
-        if (collision.gameObject.tag=="Calm") 
+        if (collision.gameObject.tag=="FreezePower") 
         {
             power = Resources.Load<GameObject>(collision.gameObject.tag);
             Destroy(collision.gameObject);
@@ -119,7 +119,7 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.tag == "Portal")
         {
             SceneManager.LoadScene(3);
-            }
+        }
     }
 
 
