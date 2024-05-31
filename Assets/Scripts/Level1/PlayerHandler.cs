@@ -190,6 +190,7 @@ public class PlayerHandler : MonoBehaviour
         {
             isRespawned = true;
             SceneManager.LoadScene(1);
+            PlayerPrefs.SetInt("Coins",0);
         }
     }
 
