@@ -13,8 +13,10 @@ public class PlayerHandler2 : MonoBehaviour
     private bool cutterCollided;
     public string potionName;
     [SerializeField]private Image HealthBar;
+    private CoinsHandler coinsHandler;
     void Start()
     {
+        coinsHandler = FindAnyObjectByType<CoinsHandler>();
     }
 
     private void Update()
@@ -64,6 +66,7 @@ public class PlayerHandler2 : MonoBehaviour
         if (HealthBar.fillAmount<=0)
         {
             SceneManager.LoadScene(3);
+            coinsHandler.amount = 0;
         }   
     }
 

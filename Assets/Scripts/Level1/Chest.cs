@@ -12,8 +12,13 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject player;
     void Start()
     {
+        if (coin==null) 
+        {
+
+            Resources.Load<GameObject>("Coin");
+        }
         tmpro = FindAnyObjectByType<TextMeshProUGUI>();
-        Resources.Load<GameObject>("Coin");
+        
         animator=GetComponent<Animator>();
     }
 
