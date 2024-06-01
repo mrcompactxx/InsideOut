@@ -29203,6 +29203,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9138180070853897253, guid: 80c950eab139db34c82cbd4db9ef90fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138180070853897253, guid: 80c950eab139db34c82cbd4db9ef90fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.31
+      objectReference: {fileID: 0}
     - target: {fileID: 9148350230881847849, guid: 80c950eab139db34c82cbd4db9ef90fd, type: 3}
       propertyPath: audioClips.Array.size
       value: 3

@@ -5,12 +5,21 @@ using UnityEngine;
 public class PowerPrefab : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float speed = 10f;
+    private float speed = 23f;
     public bool isCollidedWithEnemy;
+    [SerializeField]private GameObject player;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        if (player.transform.localScale==new Vector3(1,1,1)) 
+        {
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2 (-speed, rb.velocity.y);
+        }
     }
 
     void Update()
@@ -35,11 +44,7 @@ public class PowerPrefab : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
-        else 
-        {
-            Destroy(this.gameObject,6f);
-        }
-
+        Destroy(gameObject);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
