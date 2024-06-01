@@ -26,7 +26,7 @@ public class FreezePower : MonoBehaviour
 
     void Update()
     {
-
+        Destroy(gameObject,3f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

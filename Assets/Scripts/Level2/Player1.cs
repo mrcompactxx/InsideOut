@@ -27,6 +27,8 @@ public class Player1 : MonoBehaviour
     private bool enabledButton;
     void Start()
     {
+        speed = 10f;
+        jump = 26f;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
