@@ -14,7 +14,6 @@ public class Chest : MonoBehaviour
     {
         if (coin==null) 
         {
-
             Resources.Load<GameObject>("Coin");
         }
         tmpro = FindAnyObjectByType<TextMeshProUGUI>();

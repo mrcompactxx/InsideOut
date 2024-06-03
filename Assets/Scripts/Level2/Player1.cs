@@ -1,6 +1,12 @@
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SearchService;
+using UnityEditor.Callbacks;
+using UnityEditor.Build;
+#endif
+
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

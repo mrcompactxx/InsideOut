@@ -1,6 +1,11 @@
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SearchService;
+using UnityEditor.Callbacks;
+using UnityEditor.Build;
+#endif
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,6 +44,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+       
         playerRb = GetComponent<Rigidbody2D>();
         playerHandler = FindAnyObjectByType<PlayerHandler>();
     }
@@ -62,7 +68,7 @@ public class Player : MonoBehaviour
             scale.x = 1;
             transform.localScale = scale;   
             isFlipped = false;
-            playerRb.velocity = new Vector2(speed , playerRb.velocity.y);
+            playerRb.velocity = new Vector2(speed, playerRb.velocity.y);
         }
         if (playerHandler.backwardIsPressed)
         {
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour
         {
             if (isOnGround) 
             {
-                playerRb.velocity = new Vector2(playerRb.velocity.x, jump);
+                playerRb.velocity = new Vector2(playerRb.velocity.x, jump );
             }
         }
     }
