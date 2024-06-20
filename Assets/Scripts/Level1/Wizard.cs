@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    private bool displayed;
     internal static Wizard Instance;
 
     void Start()
@@ -18,10 +19,10 @@ public class Wizard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag=="Player") 
+        if (collision.gameObject.tag=="Player" && !displayed) 
         {
             StartCoroutine(DialogHandler.Instance.ReadLines());
-
+            displayed = true;
         }
     }
 }

@@ -22,13 +22,11 @@ public class DialogHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0)) 
-        {
+        
             if (text.text == sentences[index]) 
             {
                 NextLine();
             }
-        }
     }
 
     internal IEnumerator ReadLines() 
